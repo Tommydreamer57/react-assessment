@@ -147,7 +147,12 @@ class App extends Component {
           <div id="child4" className="child" />
           <div id="child5" className="child" />
           <div id="child6" className="child" />
-          <p>TEXT TEXT TEXT TEXT TEXT</p>
+          <p id="1">TEXT TEXT TEXT TEXT TEXT</p>
+          <p id="2">TEXT TEXT TEXT TEXT TEXT</p>
+          <p id="3">TEXT TEXT TEXT TEXT TEXT</p>
+          <p id="4">TEXT TEXT TEXT TEXT TEXT</p>
+          <p id="5">TEXT TEXT TEXT TEXT TEXT</p>
+          <div className='my-picture' height="100px" width="100px" />
         </div>
       </div>
     );
