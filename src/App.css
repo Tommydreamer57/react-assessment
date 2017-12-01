@@ -55,6 +55,8 @@ alegreya sc - bold italic
 
 .content p {
   font-weight: bold;
+  color: brown;
+  font-size: 15px;
 }
 
 .my-picture {
@@ -63,4 +65,11 @@ alegreya sc - bold italic
   background: #DDD;
   background-image: linear-gradient(to right, white, gray);
   background-repeat: no-repeat;
+}
+
+#float {
+  float: left;
+  background: black;
+  width: 100px;
+  height: 100px;
 }
