@@ -20,17 +20,23 @@ alegreya sc - bold italic
 @import url(https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans);
 @import url(https://fonts.google.com/specimen/Alegreya?selection.family=Alegreya:700i);
 
-.App {
-  position: fixed;
-  top: 0;
-  background: #4E1E29;
-  min-height: 100vh;
-  min-width: 100%;
+.Navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #020402;
+    /* color: #FBFFE6; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.content {
-  background: #C6B38E;
-  margin: 5rem 8rem;
-  min-height: 10rem;
-  border-radius: 0.5rem;
+.navbar-button {
+    color: #FBFFE6;
+    font-family: "Alegreya";
+    padding: 1rem;
+    text-decoration: none;
 }
+
