@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
+import BookTile from '../../components/BookTile/BookTile';
 
 import axios from 'axios';
 
@@ -22,13 +23,20 @@ export default class Browse extends Component {
         })
     }
     componentDidMount() {
-
+        axios.get(`http://localhost:3003/books`)
+            .then(response => {
+                console.log(response.data)
+                this.setState({
+                    books: response.data,
+                    display: response.data
+                })
+            })
     }
     render() {
         console.log(this.state.filter)
         return (
             <div className="Browse">
-                <div className="browse-header">
+                <div className="header">
                     <div className="title">Browse Inventory</div>
                     <div className="stock-filters">
                         <div className="label">In Stock<input
@@ -49,7 +57,7 @@ export default class Browse extends Component {
                             onChange={e => this.handleChange('genre', e.target.value)}
                         >
                             {
-                                
+
                             }
                         </select></div>
                     </div>
@@ -58,7 +66,7 @@ export default class Browse extends Component {
                     this.state.display.length ?
                         this.state.display.map(book => {
                             return (
-                                <div />
+                                <BookTile {...book} />
                             )
                         })
                         :

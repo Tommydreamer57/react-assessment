@@ -29,7 +29,7 @@ class App extends Component {
       user: {
         username: '',
         password: '',
-        userid: 0
+        id: 0
       },
       cart: [ // array of book objects
         {
@@ -52,11 +52,27 @@ class App extends Component {
       [target]: value
     })
   }
-  register = () => {
-    // create user
+  register = (username, password) => {
+    // console.log(arguments)
+    return axios.post(`http://localhost:3003/register`, { username, password })
+      .then(response => {
+        console.log(response.data)
+        this.setState({
+          user: response.data
+        })
+        return response.data
+      })
   }
-  login = () => {
-    // log in user
+  login = (username, password) => {
+    console.log(username, password)
+    return axios.post(`http://localhost:3003/login`, { username, password })
+      .then(response => {
+        console.log(response.data)
+        this.setState({
+          user: response.data
+        })
+        return response.data
+      })
   }
   logout = () => {
     // log out user
@@ -70,9 +86,9 @@ class App extends Component {
             <Route exact path="/"
               render={props => (
                 <Auth {...props}
-                  username={this.state.username}
-                  password={this.state.password}
-                  handleChange={this.handleChange}
+                  /* username={this.state.username} */
+                  /* password={this.state.password} */
+                  /* handleChange={this.handleChange} */
                   register={this.register}
                   login={this.login} />
               )}
@@ -87,7 +103,8 @@ class App extends Component {
             <Route path="/details/:id"
               render={props => (
                 <Details {...props}
-                  app={this.state}
+                  user={this.state.user}
+                  cart={this.state.cart}
                 />
               )}
             />
