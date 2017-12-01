@@ -13,6 +13,7 @@ import Cart from './views/Cart/Cart';
 import Shelf from './views/Shelf/Shelf';
 import Add from './views/Add/Add';
 import Edit from './views/Edit/Edit';
+import DoNothing from './views/DoNothing/DoNothing';
 
 import Navbar from './components/Navbar/Navbar';
 
@@ -29,7 +30,7 @@ class App extends Component {
       user: {
         username: '',
         password: '',
-        userid: 0
+        id: 0
       },
       cart: [ // array of book objects
         {
@@ -52,11 +53,27 @@ class App extends Component {
       [target]: value
     })
   }
-  register = () => {
-    // create user
+  register = (username, password) => {
+    // console.log(arguments)
+    return axios.post(`http://localhost:3003/register`, { username, password })
+      .then(response => {
+        console.log(response.data)
+        this.setState({
+          user: response.data
+        })
+        return response.data
+      })
   }
-  login = () => {
-    // log in user
+  login = (username, password) => {
+    console.log(username, password)
+    return axios.post(`http://localhost:3003/login`, { username, password })
+      .then(response => {
+        console.log(response.data)
+        this.setState({
+          user: response.data
+        })
+        return response.data
+      })
   }
   logout = () => {
     // log out user
@@ -70,9 +87,9 @@ class App extends Component {
             <Route exact path="/"
               render={props => (
                 <Auth {...props}
-                  username={this.state.username}
-                  password={this.state.password}
-                  handleChange={this.handleChange}
+                  /* username={this.state.username} */
+                  /* password={this.state.password} */
+                  /* handleChange={this.handleChange} */
                   register={this.register}
                   login={this.login} />
               )}
@@ -87,7 +104,8 @@ class App extends Component {
             <Route path="/details/:id"
               render={props => (
                 <Details {...props}
-                  app={this.state}
+                  user={this.state.user}
+                  cart={this.state.cart}
                 />
               )}
             />
@@ -119,7 +137,17 @@ class App extends Component {
                 />
               )}
             />
+            <Route path="/" component={DoNothing} />
           </Switch>
+        </div>
+        <div id="content2" className="content">
+          <div id="child1" className="child" />
+          <div id="child2" className="child" />
+          <div id="child3" className="child" />
+          <div id="child4" className="child" />
+          <div id="child5" className="child" />
+          <div id="child6" className="child" />
+          <p>TEXT TEXT TEXT TEXT TEXT</p>
         </div>
       </div>
     );
