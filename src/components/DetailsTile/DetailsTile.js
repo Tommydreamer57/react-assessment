@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 
 
 export default function DetailsTile(props) {
+    console.log(props.imgurl)
     return (
         <div className="DetailsTile">
-            <img src={props.src} />
+            <img src={props.imgurl} />
             <div className="details">
                 <div className="details-line">
                     <div className="property">Title:</div>

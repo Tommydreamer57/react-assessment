@@ -13,6 +13,7 @@ import Cart from './views/Cart/Cart';
 import Shelf from './views/Shelf/Shelf';
 import Add from './views/Add/Add';
 import Edit from './views/Edit/Edit';
+import DoNothing from './views/DoNothing/DoNothing';
 
 import Navbar from './components/Navbar/Navbar';
 
@@ -136,7 +137,17 @@ class App extends Component {
                 />
               )}
             />
+            <Route path="/" component={DoNothing} />
           </Switch>
+        </div>
+        <div id="content2" className="content">
+          <div id="child1" className="child" />
+          <div id="child2" className="child" />
+          <div id="child3" className="child" />
+          <div id="child4" className="child" />
+          <div id="child5" className="child" />
+          <div id="child6" className="child" />
+          <p>TEXT TEXT TEXT TEXT TEXT</p>
         </div>
       </div>
     );

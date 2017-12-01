@@ -29,9 +29,27 @@ alegreya sc - bold italic
 }
 
 .content {
+  position: relative;
   background: #C6B38E;
   margin: 5rem 8rem;
   padding: 1rem;
   min-height: 10rem;
   border-radius: 0.5rem;
+  box-sizing: border-box;
 }
+
+#content2 > .child {
+  background: blue;
+  margin-bottom: 1rem;
+  height: 2rem;
+}
+
+.content #child3 {
+  background: black;
+}
+
+#child3 + div {
+  border: 1rem solid black;
+}
+
+

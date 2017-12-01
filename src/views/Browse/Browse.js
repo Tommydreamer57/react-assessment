@@ -56,8 +56,15 @@ export default class Browse extends Component {
                             defalutValue="None"
                             onChange={e => this.handleChange('genre', e.target.value)}
                         >
+                            <option value="None" disabled >None</option>
                             {
-
+                                this.state.books.map(({ genre }, i) => {
+                                    return (
+                                        <option value={genre} >
+                                            {genre}
+                                        </option>
+                                    )
+                                })
                             }
                         </select></div>
                     </div>
