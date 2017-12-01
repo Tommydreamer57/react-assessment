@@ -31,6 +31,7 @@ alegreya sc - bold italic
 .content {
   background: #C6B38E;
   margin: 5rem 8rem;
+  padding: 1rem;
   min-height: 10rem;
   border-radius: 0.5rem;
 }

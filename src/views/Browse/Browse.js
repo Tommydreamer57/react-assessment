@@ -16,23 +16,42 @@ export default class Browse extends Component {
             }
         }
     }
+    handleChange(target, value) {
+        this.setState({
+            filter: Object.assign({}, this.state.filter, { [target]: value })
+        })
+    }
     componentDidMount() {
 
     }
     render() {
+        console.log(this.state.filter)
         return (
             <div className="Browse">
                 <div className="browse-header">
                     <div className="title">Browse Inventory</div>
                     <div className="stock-filters">
-                        <div>In Stock<input
+                        <div className="label">In Stock<input
                             type="checkbox"
-                            value={this.state.filter.in}
+                            checked={this.state.filter.in}
+                            onChange={() => this.handleChange('in', !this.state.filter.in)}
                         /></div>
-                        <div>Out of Stock<input
+                        <div className="label">Out of Stock<input
                             type="checkbox"
-                            value={this.state.filter.out}
+                            checked={this.state.filter.out}
+                            onChange={() => this.handleChange('out', !this.state.filter.out)}
                         /></div>
+                    </div>
+                    <div className="browse-genre">
+                        <div className="label">Genre<select
+                            value={this.state.filter.genre}
+                            defalutValue="None"
+                            onChange={e => this.handleChange('genre', e.target.value)}
+                        >
+                            {
+                                
+                            }
+                        </select></div>
                     </div>
                 </div>
                 {
