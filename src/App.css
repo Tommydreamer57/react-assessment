@@ -21,10 +21,11 @@ alegreya sc - bold italic
 @import url(https://fonts.google.com/specimen/Alegreya?selection.family=Alegreya:700i);
 
 .App {
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   background: #4E1E29;
   min-height: 100vh;
+  height: 100%;
   min-width: 100%;
 }
 
@@ -52,4 +53,23 @@ alegreya sc - bold italic
   border: 1rem solid black;
 }
 
+.content p {
+  font-weight: bold;
+  color: brown;
+  font-size: 15px;
+}
 
+.my-picture {
+  width: 100%;
+  min-height: 100px;
+  background: #DDD;
+  background-image: linear-gradient(to right, white, gray);
+  background-repeat: no-repeat;
+}
+
+#float {
+  float: left;
+  background: black;
+  width: 100px;
+  height: 100px;
+}
